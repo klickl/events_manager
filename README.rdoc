@@ -21,6 +21,6 @@ Taper la commande : bunde install à la racine du projet
 * Database initialization
 <tt>rake db:setup</tt>
 Effectura ces deux commandes simultanées
-    * <tt>rake db:migrate</tt>
-    * <tt>rake db:seed </tt>
+<tt>rake db:migrate</tt>
+<tt>rake db:seed </tt>
 
