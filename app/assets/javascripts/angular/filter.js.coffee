@@ -21,15 +21,18 @@
         item = '<i class="material-icons">event</i>' + item
       return item
 
+
 @app.filter 'filterReturn', () ->
   return (item) ->
     regex = /\n/g
     return item.replace(regex, '<br>')
 
+
+
 @app.filter 'filterDate', () ->
   return (item) ->
     itemDate = new Date(item)
     monthNames = [ 'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
-                 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Decembre' ]
+                 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre' ]
     result = itemDate.getDate() + " " + monthNames[itemDate.getMonth() - 1] + " " + itemDate.getFullYear()
     return result

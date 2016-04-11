@@ -39,6 +39,17 @@
   $scope.returnHome = () ->
     $location.path('')
 
+  $scope.counterDescriptionCaracters = () ->
+    value = 0
+    #si la description a été saisie
+    if  !angular.isUndefined($scope.description)
+      if $scope.description.length != 0 && $scope.form.description.$dirty
+        value = $scope.description.length
+    else
+      value = $scope.maxlength
+
+    return value
+
   $scope.submitForm = () ->
 
     if $scope.form.$valid

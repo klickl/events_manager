@@ -46,12 +46,17 @@
                   <textarea id="txtDescription" ng-model="description" name="description" ng-maxlength="maxlength" length="{{ maxlength }}" ng-attr-class="{{ form.description.$invalid && form.description.$touched && 'materialize-textarea invalid' || 'materialize-textarea' }}" required />
                   </textarea>
                   <label for="txtDescription">Description</label><br/>
-
-                  <div class="errorFormsMessages" ng-messages="form.description.$error" ng-show="form.description.$touched">
-                    <p ng-message="maxlength">Votre description est supérieure à {{ maxlength }} caractères</p>
-                    <p ng-message="required">Vous devez saisir une description</p>
+                </div>
+                <div class="row">
+                  <div class="col m12">
+                    <div ng-attr-class="{{ form.description.$invalid && form.description.$touched && 'right-align errorFormsMessages' || 'right-align' }}">
+                      {{ counterDescriptionCaracters() }} / {{ maxlength }}
+                    </div>
                   </div>
-
+                </div>
+                <div class="errorFormsMessages" ng-messages="form.description.$error" ng-show="form.description.$touched">
+                  <p ng-message="maxlength">Votre description est supérieure à {{ maxlength }} caractères</p>
+                  <p ng-message="required">Vous devez saisir une description</p>
                 </div>
               </div>
 
