@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col offset-m1 s12 m10">
+    <div class="center-align">
+      <h2>Liste des évènnements</h2>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col offset-m1 s12 m10">
+    <div class="center-align">
+      <a ng-click="order('created_at')" class="btn btn-large waves-effect waves-light red">Trier par date d'ajout</a>
+      <a ng-click="order('dateEvent')" class="btn btn-large waves-effect waves-light red">Trier par date d'évennement</a>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col offset-m1 s12 m10">
+    <ul class="collapsible popout" data-collapsible="accordion">
+      <li ng-repeat="event in events | orderBy:columnSort:reverse">
+
+          <div class="collapsible-header">
+            <div class="row">
+
+              <div class="col m6">
+                <div class="left-align">
+
+                    <span ng-bind-html="event.name | filterDate: event.dateEvent"></span>
+                </div>
+              </div>
+
+              <div class="col m6">
+                <div class="right-align">
+                  Date : {{ event.dateEvent }}
+                </div>
+              </div>
+
+            </div>
+         </div>
+
+          <div class="collapsible-body">
+            <p>
+              <span ng-bind-html="event.description | boldWords"></span>
+            </p>
+            <p>
+              Email de l'organisateur : <b>{{ event.email_organizer }}</b>
+            </p>
+          </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="fixed-action-btn" style="bottom: 90px; right: 40px;">
+  <a ng-click="createEvent()" class="btn-floating btn-large waves-effect waves-light red">
+    <i class="material-icons">add</i>
+  </a>
+</div>
+
+<script>
+  $('.collapsible').collapsible();
+</script>

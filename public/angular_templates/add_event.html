@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col offset-m1 s12 m10">
+    <div class="card blue-grey lighten-4">
+      <div class="card-content">
+        <span class="card-title black-text">Ajout d'un évennement</span>
+        <p class="white-text">
+          <div class="row">
+            <form class="col s12" name="form" ng-submit="submitForm()" novalidate>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="name" type="text" ng-model="name" name="name" ng-attr-class="{{ form.name.$invalid && form.name.$touched && 'invalid' }}" required />
+                  <label for="name">Nom</label>
+
+                  <div class="errorFormsMessages" ng-messages="form.name.$error" ng-show="form.name.$touched" >
+                    <p ng-message="required">Vous devez saisir votre nom</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="dateEvent" type="text" ng-model="dateEvent" name="dateEvent" class="datepicker" ng-attr-class="{{ form.dateEvent.$invalid && form.dateEvent.$touched && 'invalid' }}" required />
+                  <label for="dateEvent">Date</label>
+
+                  <div class="errorFormsMessages" ng-messages="form.dateEvent.$error" ng-show="form.dateEvent.$touched">
+                    <p ng-message="required">Vous devez saisir la date de l'évennement</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="email_organizer" type="text" ng-model="email_organizer" name="email_organizer" ng-pattern="emailPattern" ng-attr-class="{{ form.email_organizer.$invalid && form.email_organizer.$touched && 'invalid' }}" required />
+                  <label for="email_organizer">Adresse email de l'organisateur</label><br/>
+
+                  <div class="errorFormsMessages" ng-messages="form.email_organizer.$error" ng-show="form.email_organizer.$touched">
+                    <p ng-message="pattern">Ce n'est pas une adresse mail valide</p>
+                    <p ng-message="required">Vous saisir le mail de l'organisateur</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="txtDescription" ng-model="description" name="description" ng-maxlength="maxlength" length="{{ maxlength }}" ng-attr-class="{{ form.description.$invalid && form.description.$touched && 'materialize-textarea invalid' || 'materialize-textarea' }}" required />
+                  </textarea>
+                  <label for="txtDescription">Description</label><br/>
+
+                  <div class="errorFormsMessages" ng-messages="form.description.$error" ng-show="form.description.$touched">
+                    <p ng-message="maxlength">Votre description est supérieure à {{ maxlength }} caractères</p>
+                    <p ng-message="required">Vous devez saisir une description</p>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <button name="submit" ng-disabled="form.$invalid" ng-attr-class="{{ form.$invalid && 'btn btn-large waves-effect waves-light red invalid' || 'btn btn-large waves-effect waves-light green' }}" class="">Ajouter</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('.datepicker').pickadate({
+     selectMonths: true, // Creates a dropdown to control month
+     selectYears: 15, // Creates a dropdown of 15 years to control year
+     formatSubmit: 'yyyy/mm/dd'
+   });
+
+ </script>
