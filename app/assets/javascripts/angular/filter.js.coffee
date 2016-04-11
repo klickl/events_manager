@@ -8,13 +8,6 @@
       return item.replace(regex, '<b>$&</b>')
 
 
-@app.filter 'filterReturn', () ->
-  return (item) ->
-    regex = /\n/g
-    return item.replace(regex, '<br>')
-
-
-
 #filtre pour afficher le nom de l'évennement en rouge si il a lieu dans la semaine
 @app.filter 'withinNextWeek', () ->
     return (item, eventStrDate) ->
@@ -36,3 +29,10 @@
                  'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre' ]
     result = itemDate.getDate() + " " + monthNames[itemDate.getMonth() - 1] + " " + itemDate.getFullYear()
     return result
+
+@app.filter 'filterReturn', () ->
+  return (item) ->
+    regex = /\n/g
+    return item.replace(regex, '<br>')
+
+
