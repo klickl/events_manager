@@ -1,7 +1,7 @@
 == README
 
 Projet event_manager. Serveur rest ruby on rails, interface cliente avec angular 1.5.3.
-Vous pouvez accéder à la démo de l'application ici :
+Vous pouvez accéder à la démo de l'application ici : https://arcane-woodland-45286.herokuapp.com
 
 Cette application permet à l'utilisateur de :
 * Voir une liste d'évennement
