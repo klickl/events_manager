@@ -35,6 +35,8 @@ gem 'spring',        group: :development
 gem 'awesome_print'
 
 gem 'puma'
+
+gem 'rails_12factor'
 #Gem for design
 
 # Use ActiveModel has_secure_password
