@@ -10,7 +10,7 @@
 
 
 #filtre pour afficher le nom de l'évennement en rouge si il a lieu dans la semaine
-@app.filter 'filterDate', () ->
+@app.filter 'withinNextWeek', () ->
     return (item, eventStrDate) ->
       today = new Date
       nextWeek = Date.parse(new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7))
@@ -20,3 +20,16 @@
       else
         item = '<i class="material-icons">event</i>' + item
       return item
+
+@app.filter 'filterReturn', () ->
+  return (item) ->
+    regex = /\n/g
+    return item.replace(regex, '<br>')
+
+@app.filter 'filterDate', () ->
+  return (item) ->
+    itemDate = new Date(item)
+    monthNames = [ 'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
+                 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Decembre' ]
+    result = itemDate.getDate() + " " + monthNames[itemDate.getMonth() - 1] + " " + itemDate.getFullYear()
+    return result

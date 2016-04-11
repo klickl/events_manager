@@ -15,4 +15,6 @@
       templateUrl: '/angular_templates/home.html',
       controller: 'EventsListCtrl'
     })
+
+
 ]

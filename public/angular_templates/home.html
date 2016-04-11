@@ -26,13 +26,13 @@
               <div class="col m6">
                 <div class="left-align">
 
-                    <span ng-bind-html="event.name | filterDate: event.dateEvent"></span>
+                    <span ng-bind-html="event.name | withinNextWeek: event.dateEvent "></span>
                 </div>
               </div>
 
               <div class="col m6">
                 <div class="right-align">
-                  Date : {{ event.dateEvent }}
+                  Date : {{ event.dateEvent | filterDate}}
                 </div>
               </div>
 
@@ -41,7 +41,7 @@
 
           <div class="collapsible-body">
             <p>
-              <span ng-bind-html="event.description | boldWords"></span>
+              <span ng-bind-html="event.description | boldWords | filterReturn "></span>
             </p>
             <p>
               Email de l'organisateur : <b>{{ event.email_organizer }}</b>

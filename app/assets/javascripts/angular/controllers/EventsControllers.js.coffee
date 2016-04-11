@@ -36,10 +36,13 @@
   $scope.email_organizer = ''
   $scope.description = ''
 
+  $scope.returnHome = () ->
+    $location.path('')
+
   $scope.submitForm = () ->
 
     if $scope.form.$valid
-      event = {
+      event = {
         name: $scope.name
         dateEvent: $scope.dateEvent
         email_organizer: $scope.email_organizer
@@ -47,7 +50,8 @@
       }
       console.log(event)
       $http.post('./events.json', event).success((data) ->
-        $location.path('')
+        $scope.returnHome()
+
       ).error((data) ->
         alert("L'évennement n'a pas pu être ajouté !")
       )
