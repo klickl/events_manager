@@ -1,28 +1,26 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Projet event_manager. Serveur rest ruby on rails, interface cliente avec angular 1.5.3.
+Vous pouvez accéder à la démo de l'application ici :
 
-Things you may want to cover:
+Cette application permet à l'utilisateur de :
+* Voir une liste d'évennement
+* Ajouter des nouveau évennements.
+    * Les évennements en rouge sont les évennements qui arriveront dans les 7 prochains jours
 
 * Ruby version
-
-* System dependencies
+ => ruby 2.1.2
+ => rails 4.1.5
 
 * Configuration
+Taper la commande : bunde install à la racine du projet
 
 * Database creation
+<tt>rake db:create</tt>
 
 * Database initialization
+<tt>rake db:setup</tt>
+Effectura ces deux commandes simultanées
+    * <tt>rake db:migrate</tt>
+    * <tt>rake db:seed </tt>
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
