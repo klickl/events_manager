@@ -27,12 +27,10 @@
     itemDate = new Date(item)
     monthNames = [ 'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
                  'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre' ]
-    result = itemDate.getDate() + " " + monthNames[itemDate.getMonth() - 1] + " " + itemDate.getFullYear()
+    result = itemDate.getDate() + " " + monthNames[itemDate.getMonth()] + " " + itemDate.getFullYear()
     return result
 
 @app.filter 'filterReturn', () ->
   return (item) ->
     regex = /\n/g
     return item.replace(regex, '<br>')
-
-
